@@ -1,0 +1,24 @@
+.mainGridContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.inputDiv {
+    border-radius: 10px;
+    background: #D1C7BF;
+    padding: 20px;
+    position: fixed;
+    left: 40px;
+    width: 15%;
+}
+
+.paymentsData {
+    flex: 0 0 70%;
+    overflow: auto;
+    margin-left: 5%;
+    position: absolute;
+    left: 20%;
+}
