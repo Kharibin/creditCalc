@@ -37,32 +37,23 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+Практическое задание для соискателя
+Реализовать веб-приложение "Кредитный калькулятор", который в зависимости от параметров введенных пользователем, а также заданных параметров кредита, рассчитывает аннуитетный график погашения кредита в виде таблицы:
+Номер платежа - Месяц/Год  - Платеж по основному долгу -  Платеж по процентам - Остаток основного долга - Общая сумма платежа
+Вводимые пользователем данные:
+    • Сумма кредита - допустимые значения от 100 000 до 5 000 000
+    • Срок кредита в месяцах - от 12 до 60
+Параметры кредита (отображаются клиенту, но недоступны для изменения):
+    • годовая процентная ставка в % - от 12.9% до 23.9%
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Формулы для расчета
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Рассчитать месячный аннуитетный платеж можно по следующей формуле:
+ где
+x – месячный платёж, S – первоначальная сумма кредита, P – (1/12) процентной ставки в абсолютной величине, т.е. при 14.9% годовых ставка будет 0.149/12, N – количество месяцев.  
+Для расчета процентной составляющей аннуитетного платежа, нужно остаток кредита на указанный период умножить на годовую процентную ставку и всё это поделить на 12 (количество месяцев в году).
+, где pn – начисленные проценты, Sn – остаток задолженности на период, P - годовая процентная ставка по кредиту
+В первый месяц остаток задолженности = сумме кредита.
+Чтобы определить часть, идущую на погашение долга, необходимо из месячного платежа вычесть начисленные проценты. 
+s = x – pn, где s – часть выплаты, идущая на погашение долга, x – месячный платёж, — начисленные проценты, на момент n-ой выплаты
+В расчетах необходимо использовать округление к ближайшему целому до двух знаков после запятой.
